@@ -1,4 +1,4 @@
-package com.ascoding.composeoptimization.ui.theme
+package com.ascoding.composeoptimization
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -11,7 +11,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.ascoding.composeoptimization.HomeViewModel
 
 @Composable
 fun HomeScreen(
@@ -32,13 +31,13 @@ fun HomeScreen(
                 modifier = modifier.clickable(onClick = viewModel::onCounterClick)
             )
 
-            MyFunction()
+            TestFunction(state.testClass)
         }
     }
 }
 
 @Composable
-fun MyFunction() {
+fun TestFunction(value: TestClass) {
     Text("test")
-    println("xyz HomeScreen.kt -> MyFunction")
+    println("xyz HomeScreen.kt -> TestFunction ${value.i}")
 }

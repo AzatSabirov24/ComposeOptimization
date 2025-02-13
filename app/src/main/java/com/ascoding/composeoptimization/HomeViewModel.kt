@@ -5,10 +5,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
-data class SomeState(
-    val clicksCount: Int = 0
-)
-
 class HomeViewModel : ViewModel() {
 
     private val _state = MutableStateFlow(SomeState())
