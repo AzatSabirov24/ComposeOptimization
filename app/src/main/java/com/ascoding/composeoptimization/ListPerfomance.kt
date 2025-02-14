@@ -9,7 +9,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -22,7 +22,7 @@ fun ListScreen(modifier: Modifier = Modifier) {
     ) {
         for (i in 1..50) {
             ListItem(
-                alpha = scrollState.value / 50f,
+                alpha = { scrollState.value / 50f },
                 modifier = modifier.fillMaxWidth()
             )
         }
@@ -31,13 +31,15 @@ fun ListScreen(modifier: Modifier = Modifier) {
 
 @Composable
 fun ListItem(
-    alpha: Float,
+    alpha: () -> Float,
     modifier: Modifier = Modifier
 ) {
     Text(
         text = "List item",
         modifier = modifier
             .padding(32.dp)
-            .alpha(alpha)
+            .graphicsLayer {
+                this.alpha = alpha()
+            }
     )
 }
