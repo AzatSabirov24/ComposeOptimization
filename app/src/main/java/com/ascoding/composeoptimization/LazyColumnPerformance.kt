@@ -40,6 +40,7 @@ fun LazyColumnPerformance(modifier: Modifier = Modifier) {
     ) {
         items(
             items = robots,
+            key = { it.id }
         ) { item ->
             ListItem(
                 headlineContent = {
