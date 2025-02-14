@@ -12,6 +12,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -27,7 +28,9 @@ fun RotatingBox(modifier: Modifier = Modifier) {
 
     Box(
         modifier = modifier
-            .rotate(rotationRatio * 360f)
+            .graphicsLayer {
+                rotationZ = rotationRatio * 360f
+            }
             .size(100.dp)
             .background(Color.Red)
     )
